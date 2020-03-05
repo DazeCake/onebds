@@ -16,7 +16,7 @@ apt-get install cron
 echo "正在安装自动备份脚本================================================"
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
 cd /root
-chmod -x bakdata.sh
+chmod +x bakdata.sh
 service cron start
 echo "0 5 * * * /root/bakdata.sh" >> /var/spool/cron/crontabs/root
 service cron restart
@@ -24,7 +24,7 @@ service cron restart
 echo "正在安装启动脚本===================================================="
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/start.sh
 cd /root
-chmod -x start.sh
+chmod +x start.sh
 
 echo "安装bds============================================================="
 cd /root
@@ -37,6 +37,7 @@ echo "基本安装已完成=====================================================
 clear
 echo "所有安装已完成，系统将会在每天凌晨5点自动备份地图文件到/backup 文件夹下"
 echo "如果您觉得这个脚本对您有所帮助，请在github给我star,这是对我最大的鼓励"
+echo "以后您可以输入./start.sh来启动您的服务器"
 echo "by: DazeCake qq : 1936260102"
 while true
 do
@@ -53,7 +54,10 @@ do
          screen -r
          break
 	   ;;
-	   2)break
+	   2)
+	     screen_name=$"bds"
+         screen -dmS $screen_name
+		 break
 	   ;;
 	   esac
 	   echo "==================================="
