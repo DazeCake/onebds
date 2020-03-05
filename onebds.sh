@@ -14,6 +14,8 @@ apt-get install unzip
 
 echo "正在安装自动备份脚本================================================"
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
+echo "正在安装启动脚本===================================================="
+wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/start.sh
 
 echo "安装bds============================================================="
 cd /root
@@ -23,7 +25,6 @@ echo "开始下载bds官方开服包============================================
 wget -P /root/bds https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip
 unzip bedrock-server-1.14.32.1.zip
 echo "基本安装已完成======================================================"
-clear
 while true
 do
        menu
