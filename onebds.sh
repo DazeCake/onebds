@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 menu(){
       echo "==================================="
@@ -6,7 +6,7 @@ menu(){
 	  echo "==================================="
 	  echo "2.自行修改配置文件（将会退出）"
 }
-
+wget -p /root https://raw.githubusercontent.com/DazeCake/onebds/master/onebds.sh
 echo "安装必要程序========================================================"
 apt-get update
 apt-get install screen
