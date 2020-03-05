@@ -12,8 +12,6 @@ apt-get install screen
 apt-get install weget
 apt-get install unzip
 
-echo "正在更新脚本========================================================"
-wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/onebds.sh
 echo "正在安装自动备份脚本================================================"
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
 
