@@ -16,7 +16,7 @@ apt-get install cron
 echo "正在安装自动备份脚本================================================"
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
 cd /root
-chmod +x bakdata.sh
+chmod +rx bakdata.sh
 service cron start
 echo "0 5 * * * /root/bakdata.sh" >> /var/spool/cron/crontabs/root
 service cron restart
@@ -24,7 +24,7 @@ service cron restart
 echo "正在安装启动脚本===================================================="
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/start.sh
 cd /root
-chmod +x start.sh
+chmod +rx start.sh
 
 echo "安装bds============================================================="
 cd /root
