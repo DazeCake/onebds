@@ -11,6 +11,7 @@ echo "开始下载预编译文件========================================="
 wget -p /root/bds https://raw.githubusercontent.com/DazeCake/onebds/master/dist-RELEASE-CN.zip
 echo "开始解压预编译文件========================================="
 unzip dist-RELEASE-CN.zip
+rm  dist-RELEASE-CN.zip
 echo "解压完成==================================================="
 clear
 cd /root
