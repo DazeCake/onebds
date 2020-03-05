@@ -36,6 +36,7 @@ cd bds
 echo "开始下载bds官方开服包==============================================="
 wget -P /root/bds https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip
 unzip bedrock-server-1.14.32.1.zip
+rm bedrock-server-1.14.32.1.zip
 echo "基本安装已完成======================================================"
 clear
 echo "所有安装已完成，系统将会在每天凌晨5点自动备份地图文件到/backup 文件夹下"
