@@ -12,6 +12,11 @@ apt-get install screen
 apt-get install weget
 apt-get install unzip
 
+echo "正在更新脚本========================================================"
+wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/onebds.sh
+echo "正在安装自动备份脚本================================================"
+wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
+
 echo "安装bds============================================================="
 cd /root
 mkdir bds
@@ -20,6 +25,7 @@ echo "开始下载bds官方开服包============================================
 wget -P /root/bds https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip
 unzip bedrock-server-1.14.32.1.zip
 echo "基本安装已完成======================================================"
+clear
 while true
 do
        menu
