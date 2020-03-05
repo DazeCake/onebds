@@ -2,28 +2,28 @@
 
 menu(){
       echo "==================================="
-	  echo "1.ÔÚ´°¿ÚÖĞÔËĞĞ·şÎñÆ÷£¨Ê¹ÓÃÄ¬ÈÏÅäÖÃ£©"
+	  echo "1.åœ¨çª—å£ä¸­è¿è¡ŒæœåŠ¡å™¨ï¼ˆä½¿ç”¨é»˜è®¤é…ç½®ï¼‰"
 	  echo "==================================="
-	  echo "2.×ÔĞĞĞŞ¸ÄÅäÖÃÎÄ¼ş£¨½«»áÍË³ö£©"
+	  echo "2.è‡ªè¡Œä¿®æ”¹é…ç½®æ–‡ä»¶ï¼ˆå°†ä¼šé€€å‡ºï¼‰"
 }
-wget -p /root https://raw.githubusercontent.com/DazeCake/onebds/master/onebds.sh
-echo "°²×°±ØÒª³ÌĞò========================================================"
+echo "å®‰è£…å¿…è¦ç¨‹åº========================================================"
 apt-get update
 apt-get install screen
 apt-get install weget
+apt-get install unzip
 
-echo "°²×°bds============================================================="
+echo "å®‰è£…bds============================================================="
 cd /root
 mkdir bds
 cd bds
-echo "¿ªÊ¼ÏÂÔØbds¹Ù·½¿ª·ş°ü==============================================="
+echo "å¼€å§‹ä¸‹è½½bdså®˜æ–¹å¼€æœåŒ…==============================================="
 wget -P /root/bds https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip
 unzip bedrock-server-1.14.32.1.zip
-echo "»ù±¾°²×°ÒÑÍê³É======================================================"
-while £º
+echo "åŸºæœ¬å®‰è£…å·²å®Œæˆ======================================================"
+while true
 do
        menu
-	   read -p "ÇëÊäÈëÑ¡Ïî£º"n
+	   read -p "è¯·è¾“å…¥é€‰é¡¹ï¼š" n
 	   
 	   case $n in
 	   1)cd /root/bds
@@ -32,9 +32,12 @@ do
 		 cmd=$"LD_PRELOAD=./preload.so ./bedrock_server";
          screen -x -S $screen_name -p 0 -X stuff "$cmd"
          screen -x -S $screen_name -p 0 -X stuff $'\n'
+         screen -r
+         break
 	   ;;
 	   2)break
 	   ;;
 	   esac
 	   echo "==================================="
 done
+
