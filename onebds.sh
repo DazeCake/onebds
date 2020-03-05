@@ -12,7 +12,7 @@ menu(){
 echo "安装必要程序========================================================"
 apt-get update
 apt-get install screen
-apt-get install weget
+apt-get install wget
 apt-get install unzip
 apt-get install cron
 
