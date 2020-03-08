@@ -6,7 +6,7 @@ menu(){
 	  echo "==============================================="
 	  echo "2.自行修改配置文件（将会退出）"
 	  echo "==============================================="
-	  echo "3.安装BDL（服务器mod启动器，已停更，但仍可用）"
+	  echo "3.安装BDL（服务器mod启动器，不建议新手使用）"
 	  echo "==============================================="
 }
 echo "安装必要程序========================================================"
@@ -15,6 +15,8 @@ apt-get install screen
 apt-get install wget
 apt-get install unzip
 apt-get install cron
+apt-get install openssl
+apt-get install curl
 
 echo "正在安装自动备份脚本================================================"
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
