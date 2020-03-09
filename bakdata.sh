@@ -4,7 +4,7 @@ ZIP="/usr/bin/zip"
 RM="/bin/rm"
 
 SOURCE_PATH="/root/bds/worlds"
-DESTINATION_FILE="/backup/Saves/MinecraftSaveBackup_`date \"+%s\"`.zip"
+DESTINATION_FILE="/backup/saves/MinecraftSaveBackup_`date \"+%s\"`.zip"
 
 SOURCE_PATH_FILES="$SOURCE_PATH/*"
 
