@@ -4,7 +4,22 @@
  ## If you have any problem using the script, open an issue then.
  ## Scriptmaker: nzbcorz.
 
- # First check if it's exists
+ # See if you are loged as root
+ checksu() {
+  if [ $UID -ne 0 ]; then
+    sudo -i
+    if [ $UID -ne 0 ]; then
+      dialog --title "正在安装" --no-shadow --backtitle "OneKeyBDS 一键部署脚本" --infobox " 您的用户不是root，请检查用户后再试。" 3 50
+   	 sleep 1.5
+    else
+     check
+    fi
+  else
+    check
+  fi
+  }
+
+ # Then check if it's exists
  check() {
 	 # This function only works if the path is default
 	 server=/root/bds/bedrock_server
@@ -433,4 +448,4 @@
 	 exit
  }
 
- check
+ checksu
