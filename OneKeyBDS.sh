@@ -109,7 +109,7 @@
    dialog --title "正在安装" --no-shadow --backtitle "OneKeyBDS 一键部署脚本" --infobox " 正在下载自动备份脚本……" 3 50
    sleep 1.5
    clear
-   bakdata="https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh"
+   bakdata="https://raw.githubusercontent.com/DazeCake/onebds/master/mapbak.sh"
    wget -P /root "$bakdata" 2>&1 | \
    stdbuf -o0 awk '/[.] +[0-9][0-9]?[0-9]?%/ { print substr($0,63,3) }' | \
    dialog --gauge "正在下载自动备份脚本……" 7 100
