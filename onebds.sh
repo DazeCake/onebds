@@ -12,12 +12,17 @@ menu(){
 	  echo "==============================================="
 }
 echo "请登录root"
-su
+sudo -i
+    if [ $UID -ne 0 ]; then
+      echo "登陆成功"
+    else
+      echo "您目前不是root用户。"
+    fi
 echo "登录成功"
 cd /root
 echo "安装必要程序========================================================"
-apt-get update
-apt-get install -y screen wget unzip cron openssl curl
+sudo apt-get update
+sudo apt-get install -y screen wget unzip cron openssl curl
 
 echo "正在下载启动脚本===================================================="
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/start.sh
@@ -38,32 +43,34 @@ echo "所有安装已完成，系统将会在每天凌晨5点自动备份地图�
 echo "如果您觉得这个脚本对您有所帮助，请在github给我star,这是对我最大的鼓励"
 echo "窗口已经创建为bds"
 echo "您可以输入./start.sh来手动启动您的服务器（如果您是root账号的话）"
-echo "by: DazeCake qq : 1936260102"
+echo "by: DazeCake  qq : 1936260102"
 while true
 do
        menu
 	   read -p "请输入选项：" n
 	   
 	   case $n in
-	   1)cd /root/bds
+	   1)
+	 cd /root/bds
 	     screen_name=$"bds"
+	     cmd=$"LD_LIBRARY_PATH=. ./bedrock_server";
          screen -dmS $screen_name
-		 cmd=$"LD_PRELOAD=./preload.so ./bedrock_server";
          screen -x -S $screen_name -p 0 -X stuff "$cmd"
          screen -x -S $screen_name -p 0 -X stuff $'\n'
          screen -Dr
          break
 	   ;;
-	   2)cd /root/bds
+	   2)
 	     screen_name=$"bds"
+	 cd /root/bds
          screen -dmS $screen_name
-		 break
+	 break
 	   ;;
 	   3)
-	     wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bdl.sh
-		 chmod +rx bdl.sh
-		 sh bdl.sh
-		 break
+	 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bdl.sh
+	 chmod +rx bdl.sh
+	 sh bdl.sh
+	 break
 	   ;;
 	   4)
 	     echo "正在下载自动备份脚本================================================"
