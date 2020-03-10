@@ -8,18 +8,16 @@ menu(){
 	  echo "==============================================="
 	  echo "3.安装BDL（服务器MOD启动器，不建议新手使用）"
 	  echo "==============================================="
+	  echo "4.安装自动备份服务"
+	  echo "==============================================="
 }
+echo "请登录root"
+su
+echo "登录成功"
+cd /root
 echo "安装必要程序========================================================"
 apt-get update
 apt-get install -y screen wget unzip cron openssl curl
-
-echo "正在下载自动备份脚本================================================"
-wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
-cd /root
-chmod +rx bakdata.sh
-service cron start
-echo "0 5 * * * /root/bakdata.sh" >> /var/spool/cron/crontabs/root
-service cron restart
 
 echo "正在下载启动脚本===================================================="
 wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/start.sh
@@ -39,8 +37,7 @@ clear
 echo "所有安装已完成，系统将会在每天凌晨5点自动备份地图文件到 /backup/saves 文件夹下"
 echo "如果您觉得这个脚本对您有所帮助，请在github给我star,这是对我最大的鼓励"
 echo "窗口已经创建为bds"
-#你丫怎么知道他是不是用root用户登录的怎么能默认就是./start.sh启动（狗头
-echo "您可以输入./start.sh来手动启动您的服务器"
+echo "您可以输入./start.sh来手动启动您的服务器（如果您是root账号的话）"
 echo "by: DazeCake qq : 1936260102"
 while true
 do
@@ -67,6 +64,16 @@ do
 		 chmod +rx bdl.sh
 		 sh bdl.sh
 		 break
+	   ;;
+	   4)
+	     echo "正在下载自动备份脚本================================================"
+             wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
+             cd /root
+             chmod +rx bakdata.sh
+             service cron start
+             echo "0 5 * * * /root/bakdata.sh" >> /var/spool/cron/crontabs/root
+	     service cron restart
+	     break
 	   ;;
 	   esac
 	   echo "==================================="
