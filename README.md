@@ -10,10 +10,14 @@
 
 本脚本适用于`Ubuntu`以及`Debian`系统的服务器
 
-本脚本仅在`Ubuntu 18 19`上通过测试，若有不兼容或者报错的情况请提交issue。
+本脚本仅在`Ubuntu 18`上通过测试，若有不兼容或者报错的情况请提交issue。
 
 
 ## 使用方法
 
 1. 连接服务器的终端
 2. 输入如下指令 `apt-get install wget&&wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/onebds.sh&&cd /root&&chmod +rx onebds.sh&&./onebds.sh`
+
+## 关于安全
+
+嘿老兄，我知道，linux当然应该能不用root就不root，可是想一想这个脚本是给谁用的？有一说一，如果你确实关注到了这个问题，我建议你立马删除掉这个脚本，他并不适合你使用，我是说，你的水平并不需要这个脚本。完全可以自己搭建。
