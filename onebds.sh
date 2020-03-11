@@ -6,6 +6,7 @@ menu(){
 	  echo "==============================================="
 	  echo "2.退出，自行修改配置文件手动启动（推荐）"
 	  echo "==============================================="
+	  }
 cd /root
 echo "安装必要程序========================================================"
 apt-get update
@@ -24,6 +25,7 @@ echo "正在下载官方bds开服包============================================
 wget -P /root/bds https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip
 unzip bedrock-server-1.14.32.1.zip
 rm bedrock-server-1.14.32.1.zip
+cp /root/start.sh /root/bds
 echo "基本安装已完成======================================================"
 clear
 echo "所有安装已完成"
