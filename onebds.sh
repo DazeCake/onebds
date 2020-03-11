@@ -4,16 +4,8 @@ menu(){
       echo "==============================================="
 	  echo "1.在窗口中运行服务器（使用默认配置）"
 	  echo "==============================================="
-	  echo "2.自行修改配置文件"
+	  echo "2.退出，自行修改配置文件手动启动（推荐）"
 	  echo "==============================================="
-	  echo "3.安装BDL（服务器MOD启动器，不建议新手使用）"
-	  echo "==============================================="
-	  echo "4.安装自动备份服务"
-	  echo "==============================================="
-}
-echo "请登录root"
-su
-echo "登录成功"
 cd /root
 echo "安装必要程序========================================================"
 apt-get update
@@ -34,10 +26,10 @@ unzip bedrock-server-1.14.32.1.zip
 rm bedrock-server-1.14.32.1.zip
 echo "基本安装已完成======================================================"
 clear
-echo "所有安装已完成，系统将会在每天凌晨5点自动备份地图文件到 /backup/saves 文件夹下"
+echo "所有安装已完成"
 echo "如果您觉得这个脚本对您有所帮助，请在github给我star,这是对我最大的鼓励"
-echo "窗口已经创建为bds"
-echo "您可以输入./start.sh来手动启动您的服务器（如果您是root账号的话）"
+echo "窗口将被创建为bds 你可以使用screen -R bds来手动重连窗口"
+echo "您可以输入sh start.sh来手动启动您的服务器（如果您是root账号的话）"
 echo "by: DazeCake qq : 1936260102"
 while true
 do
@@ -56,23 +48,7 @@ do
 	   ;;
 	   2)cd /root/bds
 	     screen_name=$"bds"
-         screen -dmS $screen_name
-		 break
-	   ;;
-	   3)
-	     wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bdl.sh
-		 chmod +rx bdl.sh
-		 sh bdl.sh
-		 break
-	   ;;
-	   4)
-	     echo "正在下载自动备份脚本================================================"
-             wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/bakdata.sh
-             cd /root
-             chmod +rx bakdata.sh
-             service cron start
-             echo "0 5 * * * /root/bakdata.sh" >> /var/spool/cron/crontabs/root
-	     service cron restart
+             screen -dmS $screen_name
 	     break
 	   ;;
 	   esac
