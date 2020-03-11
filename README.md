@@ -13,7 +13,7 @@
 
 ## 使用方法
 
-1. 连接服务器的终端
+1. 使用root账号连接服务器的终端
 2. 输入如下指令 `apt-get install wget&&wget -P /root https://raw.githubusercontent.com/DazeCake/onebds/master/onebds.sh&&cd /root&&chmod +rx onebds.sh&&./onebds.sh`
 
 ## 关于安全
